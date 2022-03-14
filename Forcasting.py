@@ -1,15 +1,12 @@
 # import libraries
 import pandas as pd
 from datetime import datetime
-# from pandas import datetime
 from matplotlib import pyplot
 from pandas import DataFrame
 # use a ARIMA machine learning model 
 from statsmodels.tsa.arima_model import ARIMA
-from matplotlib import pyplot
 from sklearn.metrics import mean_squared_error
 from math import sqrt
-import numpy as np
 import statsmodels.api as sm
 
 # function that called a parser that convert the type of date to datetime in python 
@@ -85,7 +82,7 @@ print("size of train data : " , len(train))
 print("size of test data : ",len(test))
 
 
-# validation
+# walk-forward validation
 for t in range(len(test)):
 	model = sm.tsa.arima.ARIMA(history, order=(5,1,0))
 	model_fit = model.fit()
